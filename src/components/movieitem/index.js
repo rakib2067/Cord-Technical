@@ -61,6 +61,9 @@ const MoviePoster = styled.img`
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
+  @media (min-width: 1200px) {
+    width: unset;
+  }
 `;
 
 const GenresContainer = styled.div`
@@ -74,6 +77,9 @@ const Genre = styled.span`
 
 const LeftCont = styled.div`
   flex: 1;
+  @media (min-width: 1200px) {
+    flex: unset;
+  }
 `;
 
 const RightCont = styled.div`
@@ -82,6 +88,9 @@ const RightCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (min-width: 1200px) {
+    flex: unset;
+  }
 `;
 
 const ReleaseDate = styled.span`

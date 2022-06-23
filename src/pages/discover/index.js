@@ -70,16 +70,26 @@ const DiscoverWrapper = styled.main`
 const MovieResults = styled.div`
   display: inline-block;
   width: calc(100% - 295px);
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 const MovieFilters = styled.div`
   width: 280px;
   float: right;
   margin-top: 15px;
+  @media (max-width: 1000px) {
+    float: unset;
+    width: 100%;
+  }
 `;
 
 const MobilePageTitle = styled.h1`
   display: none;
+  @media (max-width: 1000px) {
+    display: block;
+  }
 `;
 
 const TotalCount = styled.strong`

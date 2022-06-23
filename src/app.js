@@ -25,8 +25,12 @@ export default function App() {
 
 const ContentWrapper = styled.main`
   padding-left: 260px;
+  @media (max-width: 1000px) {
+    padding-left: 0px;
+  }
 `;
 
 const PageContainer = styled.main`
   overflow-x: hidden;
+  display: flex;
 `;
