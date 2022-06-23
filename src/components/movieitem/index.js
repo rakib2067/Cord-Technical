@@ -16,20 +16,23 @@ export default function MovieItem({ movie, genres }) {
         <MoviePoster src={movie.url} alt="" />
       </LeftCont>
       <RightCont>
-        <MovieHeader>
-          <Title>{movie.title}</Title>
-          <Rating>{movie.vote_average}</Rating>
-        </MovieHeader>
-        <GenresContainer>
-          {genres.map((genre, index) => {
-            if (index == 0) return <Genre>{genre.name} |</Genre>;
-            else if (index == genresLength) return <Genre> {genre.name}</Genre>;
-            else return <Genre> {genre.name} |</Genre>;
-          })}
-        </GenresContainer>
+        <Content>
+          <MovieHeader>
+            <Title>{movie.title}</Title>
+            <Rating>{movie.vote_average}</Rating>
+          </MovieHeader>
+          <GenresContainer>
+            {genres.map((genre, index) => {
+              if (index == 0) return <Genre>{genre.name} |</Genre>;
+              else if (index == genresLength)
+                return <Genre> {genre.name}</Genre>;
+              else return <Genre> {genre.name} |</Genre>;
+            })}
+          </GenresContainer>
 
-        <Description>{movie.overview}</Description>
-        {/* <p>Release: {movie.release_date}</p> */}
+          <Description>{movie.overview}</Description>
+        </Content>
+        <ReleaseDate>{movie.release_date}</ReleaseDate>
       </RightCont>
     </MovieItemWrapper>
   );
@@ -49,6 +52,8 @@ const MovieHeader = styled.div`
   justify-content: space-between;
 `;
 
+const Content = styled.div``;
+
 const MoviePoster = styled.img`
   height: 100%;
 `;
@@ -66,6 +71,13 @@ const LeftCont = styled.div``;
 
 const RightCont = styled.div`
   padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const ReleaseDate = styled.span`
+  color: ${primaryColor};
 `;
 
 const Title = styled.h2`
