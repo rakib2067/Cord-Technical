@@ -32,14 +32,13 @@ export default function Discover() {
 
   // TODO: Preload and set the popular movies and movie genres when page loads
   useEffect(() => {
-    async function getMovies() {
-      let { results, total_results } = await fetchPopularMovies();
-      setResults(results);
-      setTotalCount(total_results);
-    }
     getMovies();
   }, []);
-
+  async function getMovies() {
+    let { results, total_results } = await fetchPopularMovies();
+    setResults(results);
+    setTotalCount(total_results);
+  }
   // TODO: Update search results based on the keyword and year inputs
 
   return (
