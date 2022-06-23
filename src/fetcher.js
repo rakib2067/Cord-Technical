@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiKey = "3a992d70036cb43c0da60b7f5bea1918";
-let imgUrl = "https://image.tmdb.org/t/p/w500/";
+let imgUrl = "https://image.tmdb.org/t/p/w154/";
 // TODO: All of your API requests should be in this file
 // See the README file for more information about the APIs you would need to use
 

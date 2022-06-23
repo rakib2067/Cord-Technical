@@ -5,10 +5,11 @@ export default function MovieItem({ movie, genres }) {
   return (
     // TODO: Complete the MovieItem component
     <MovieItemWrapper>
-      <LeftCont></LeftCont>
+      <LeftCont>
+        <img src={movie.url} alt="" />
+      </LeftCont>
       <RightCont>
         <Title>{movie.title}</Title>
-        <img src={movie.url} alt="" />
       </RightCont>
     </MovieItemWrapper>
   );
