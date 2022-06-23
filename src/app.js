@@ -24,7 +24,7 @@ export default function App() {
 }
 
 const ContentWrapper = styled.main`
-  padding-left: 280px;
+  padding-left: 260px;
 `;
 
 const PageContainer = styled.main`

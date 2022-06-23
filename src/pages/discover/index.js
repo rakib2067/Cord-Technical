@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
 
 import * as colors from "../../colors";
 import * as fetcher from "../../fetcher";
+import { fetchPopularMovies } from "../../fetcher";
 
 import SearchFilters from "../../components/searchfilter";
 import MovieList from "../../components/movielist";
@@ -30,6 +31,14 @@ export default function Discover() {
   ]);
 
   // TODO: Preload and set the popular movies and movie genres when page loads
+  useEffect(() => {
+    async function getMovies() {
+      let { results, total_results } = await fetchPopularMovies();
+      setResults(results);
+      setTotalCount(total_results);
+    }
+    getMovies();
+  }, []);
 
   // TODO: Update search results based on the keyword and year inputs
 
@@ -54,7 +63,7 @@ export default function Discover() {
 }
 
 const DiscoverWrapper = styled.main`
-  padding: 35px;
+  padding: 45px;
 `;
 
 const MovieResults = styled.div`
