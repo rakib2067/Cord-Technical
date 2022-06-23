@@ -56,6 +56,11 @@ const Content = styled.div``;
 
 const MoviePoster = styled.img`
   height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
 `;
 
 const GenresContainer = styled.div`
@@ -67,9 +72,12 @@ const Genre = styled.span`
   font-weight: bold;
 `;
 
-const LeftCont = styled.div``;
+const LeftCont = styled.div`
+  flex: 1;
+`;
 
 const RightCont = styled.div`
+  flex: 2;
   padding-left: 20px;
   display: flex;
   flex-direction: column;
@@ -81,10 +89,19 @@ const ReleaseDate = styled.span`
 `;
 
 const Title = styled.h2`
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   margin: 0;
   font-weight: 900;
   color: ${sideNavBar};
+  @media (max-width: 1450px) {
+    font-size: 1.3rem;
+  }
+  @media (max-width: 1200px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 1200px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Rating = styled.span`
@@ -98,4 +115,9 @@ const Rating = styled.span`
 
 const Description = styled.p`
   margin: 0;
+  max-width: 75ch;
+  font-size: 1rem;
+  @media (max-width: 1300px) {
+    font-size: 0.85rem;
+  }
 `;
