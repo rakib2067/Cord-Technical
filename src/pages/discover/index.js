@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import * as colors from "../../colors";
 import * as fetcher from "../../fetcher";
-import { fetchPopularMovies } from "../../fetcher";
+import { fetchPopularMovies, fetchGenres } from "../../fetcher";
 
 import SearchFilters from "../../components/searchfilter";
 import MovieList from "../../components/movielist";
@@ -32,18 +32,20 @@ export default function Discover() {
 
   // TODO: Preload and set the popular movies and movie genres when page loads
   useEffect(() => {
-    getMovies();
+    loadData();
   }, []);
-  async function getMovies() {
+  async function loadData() {
     let { results, total_results } = await fetchPopularMovies();
+    let { genres } = await fetchGenres();
     setResults(results);
     setTotalCount(total_results);
+    setGenreOptions(genres);
   }
   // TODO: Update search results based on the keyword and year inputs
 
   return (
     <DiscoverWrapper>
-      <MobilePageTitle>Discover</MobilePageTitle>{" "}
+      <MobilePageTitle>Discover</MobilePageTitle>
       {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
       <TotalCount>{totalCount} results</TotalCount>
       <MovieFilters>

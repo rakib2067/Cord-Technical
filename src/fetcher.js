@@ -19,3 +19,14 @@ export const fetchPopularMovies = async () => {
     return error;
   }
 };
+export const fetchGenres = async () => {
+  try {
+    let resp = await axios.get(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`
+    );
+    console.log(resp.data);
+    return resp.data;
+  } catch (error) {
+    return error;
+  }
+};
