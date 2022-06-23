@@ -15,7 +15,10 @@ export default function MovieItem({ movie, genres }) {
       </LeftCont>
       <RightCont>
         <Title>{movie.title}</Title>
-        {genres.map((genre) => genre.name)}
+        <p>Genres: {genres.map((genre) => genre.name)}</p>
+        <p>Release: {movie.release_date}</p>
+        <p>Rating: {movie.vote_average}</p>
+        <p>Overview: {movie.overview}</p>
       </RightCont>
     </MovieItemWrapper>
   );
