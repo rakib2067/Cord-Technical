@@ -6,7 +6,6 @@ import Placeholder from "../../images/placeholder.png";
 
 export default function MovieItem({ movie, genres }) {
   const [error, setError] = useState(false);
-  console.log(movie.url);
   genres = genres.filter((genre) => {
     return movie.genre_ids.some((id) => id == genre.id);
   });
@@ -30,10 +29,13 @@ export default function MovieItem({ movie, genres }) {
           </MovieHeader>
           <GenresContainer>
             {genres.map((genre, index) => {
-              if (index == 0) return <Genre>{genre.name} |</Genre>;
+              if (genresLength == 0)
+                return <Genre key={index}>{genre.name}</Genre>;
+              else if (index == 0)
+                return <Genre key={index}>{genre.name} |</Genre>;
               else if (index == genresLength)
-                return <Genre> {genre.name}</Genre>;
-              else return <Genre> {genre.name} |</Genre>;
+                return <Genre key={index}> {genre.name}</Genre>;
+              else return <Genre key={index}> {genre.name} |</Genre>;
             })}
           </GenresContainer>
 

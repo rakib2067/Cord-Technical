@@ -10,7 +10,6 @@ export const fetchPopularMovies = async () => {
     let resp = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
     );
-    console.log(resp.data);
     resp.data.results.forEach(
       (movie) => (movie.url = imgUrl + movie.poster_path)
     );
@@ -24,7 +23,6 @@ export const fetchGenres = async () => {
     let resp = await axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`
     );
-    console.log(resp.data);
     return resp.data;
   } catch (error) {
     return error;
@@ -40,7 +38,6 @@ export const searchMovies = async (keyword, year) => {
       apiString = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${keyword}&page=1`;
 
     let resp = await axios.get(apiString);
-    console.log(resp.data);
     resp.data.results.forEach(
       (movie) => (movie.url = imgUrl + movie.poster_path)
     );
