@@ -13,18 +13,23 @@ export default function SearchFilters({
   languages,
   onSearch,
 }) {
+  async function searchMovies(keyword, year) {
+    //search for movie using either keyword, year or both
+  }
   return (
     <FiltersWrapper>
       <SearchFiltersCont className="search_inputs_cont" marginBottom>
         <SearchBar
           id="keyword_search_input"
           type="text"
+          onChange={onSearch}
           icon={{ src: SearchIcon, alt: "Magnifying glass" }}
           placeholder="Search for movies"
         />
         <SearchBar
           id="year_search_input"
           type="number"
+          onChange={onSearch}
           icon={{ src: YearIcon, alt: "Calendar icon" }}
           placeholder="Year of release"
         />

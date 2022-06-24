@@ -25,6 +25,7 @@ export default function App() {
 
 const ContentWrapper = styled.main`
   padding-left: 260px;
+  width: 100%;
   @media (max-width: 1000px) {
     padding-left: 0px;
   }

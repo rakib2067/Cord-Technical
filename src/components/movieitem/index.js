@@ -87,6 +87,7 @@ const RightCont = styled.div`
   padding-left: 20px;
   display: flex;
   flex-direction: column;
+  width: 100%;
   justify-content: space-between;
   @media (min-width: 1200px) {
     flex: unset;

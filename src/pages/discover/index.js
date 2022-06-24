@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import * as colors from "../../colors";
 import * as fetcher from "../../fetcher";
-import { fetchPopularMovies, fetchGenres } from "../../fetcher";
+import { fetchPopularMovies, fetchGenres, searchMovies } from "../../fetcher";
 
 import SearchFilters from "../../components/searchfilter";
 import MovieList from "../../components/movielist";
@@ -42,6 +42,24 @@ export default function Discover() {
     setGenreOptions(genres);
   }
   // TODO: Update search results based on the keyword and year inputs
+  useEffect(() => {
+    keyword && handleSearch(keyword, year);
+    !keyword && loadData();
+  }, [keyword, year]);
+
+  async function handleSearch(keyword, year) {
+    let { results, total_results } = await searchMovies(keyword, year);
+    setResults(results);
+    setTotalCount(total_results);
+  }
+  function handleOnSearch(value, type) {
+    if (type == "text") setKeyword(value);
+    else setYear(value);
+  }
+  //Plan: As user types the movie name, a useEffect hook will be fired, causing the search function to be called again
+  // This will replace the existing genres and results arrays
+  // This will also rerender the movielist component
+  // All logic should happen from this component
 
   return (
     <DiscoverWrapper>
@@ -54,6 +72,7 @@ export default function Discover() {
           ratings={ratingOptions}
           languages={languageOptions}
           searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
+          onSearch={handleOnSearch}
         />
       </MovieFilters>
       <MovieResults>

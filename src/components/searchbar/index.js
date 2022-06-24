@@ -4,22 +4,40 @@ import styled from "styled-components";
 import * as colors from "../../colors";
 
 export default function SearchBar({ icon, id, type, placeholder, onChange }) {
-  return (
-    <InputWrapper type={type} className="search_bar_wrapper">
-      <img src={icon.src} alt={icon.alt} htmlFor={id} width="25" />
+  let inp;
+  if (type == "number") {
+    inp = (
       <input
         type={type}
         id={id}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        min="1900"
+        max="2099"
+        step="1"
       />
-    </InputWrapper>
+    );
+  } else {
+    inp = (
+      <input
+        type={type}
+        id={id}
+        onChange={(e) => onChange(e.target.value, type)}
+        placeholder={placeholder}
+      />
+    );
+  }
+  return (
+    <>
+      <InputWrapper type={type} className="search_bar_wrapper">
+        <img src={icon.src} alt={icon.alt} htmlFor={id} width="25" />
+        {inp}
+      </InputWrapper>
+    </>
   );
 }
 
 const InputWrapper = styled.div`
-  &[type="password"] {
-  }
   display: flex;
   align-items: center;
   padding: 10px 0;

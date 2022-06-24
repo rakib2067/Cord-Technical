@@ -30,3 +30,22 @@ export const fetchGenres = async () => {
     return error;
   }
 };
+
+export const searchMovies = async (keyword, year) => {
+  try {
+    let apiString;
+    if (keyword && year)
+      apiString = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${keyword}&year=${year}&page=1`;
+    else
+      apiString = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${keyword}&page=1`;
+
+    let resp = await axios.get(apiString);
+    console.log(resp.data);
+    resp.data.results.forEach(
+      (movie) => (movie.url = imgUrl + movie.poster_path)
+    );
+    return resp.data;
+  } catch (error) {
+    return error;
+  }
+};
