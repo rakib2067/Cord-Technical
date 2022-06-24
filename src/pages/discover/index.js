@@ -61,7 +61,6 @@ export default function Discover() {
     <DiscoverWrapper>
       <MobilePageTitle>Discover</MobilePageTitle>
       {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
-      <TotalCount>{totalCount} results</TotalCount>
       <MovieFilters>
         <SearchFilters
           genres={genreOptions}
@@ -71,6 +70,7 @@ export default function Discover() {
           onSearch={handleOnSearch}
         />
       </MovieFilters>
+      <TotalCount>{totalCount} results</TotalCount>
       <MovieResults>
         <MovieList movies={results || []} genres={genreOptions || []} />
       </MovieResults>
@@ -80,6 +80,12 @@ export default function Discover() {
 
 const DiscoverWrapper = styled.main`
   padding: 45px;
+  @media (max-width: 1000px) {
+    padding: 25px;
+  }
+  @media (max-width: 600px) {
+    padding: 15px;
+  }
 `;
 
 const MovieResults = styled.div`
@@ -93,7 +99,7 @@ const MovieResults = styled.div`
 const MovieFilters = styled.div`
   width: 280px;
   float: right;
-  margin-top: 15px;
+  margin-top: 35px;
   @media (max-width: 1000px) {
     float: unset;
     width: 100%;
@@ -104,9 +110,12 @@ const MobilePageTitle = styled.h1`
   display: none;
   @media (max-width: 1000px) {
     display: block;
+    margin: 0;
   }
 `;
 
 const TotalCount = styled.strong`
   display: block;
+  font-size: 0.9rem;
+  font-weight: normal;
 `;

@@ -7,6 +7,7 @@ import SearchBar from "../../components/searchbar";
 
 import SearchIcon from "../../images/search-icon-yellow.png";
 import YearIcon from "../../images/year-icon.png";
+import Filter from "../../images/filter-icon.png";
 export default function SearchFilters({
   genres,
   ratings,
@@ -15,6 +16,9 @@ export default function SearchFilters({
 }) {
   return (
     <FiltersWrapper>
+      <Button>
+        <img src={Filter} />
+      </Button>
       <SearchFiltersCont className="search_inputs_cont" marginBottom>
         <SearchBar
           id="keyword_search_input"
@@ -42,8 +46,29 @@ export default function SearchFilters({
   );
 }
 
+const Button = styled.button`
+  display: block;
+  align-items: center;
+  width: 15%;
+  padding: 0;
+  margin-bottom: 3px;
+  background: ${colors.lightBackground};
+  outline: 0;
+  border: 0;
+  border-bottom: 2px solid;
+  color: ${colors.primaryColor};
+  @media (min-width: 1000px) {
+    display: none;
+  }
+`;
 const FiltersWrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 1000px) {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
 `;
 
 const SearchFiltersCont = styled.div`
@@ -51,6 +76,7 @@ const SearchFiltersCont = styled.div`
   padding: 20px;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  margin-right: 0%;
 
   .search_bar_wrapper:first-child {
     margin-bottom: 15px;
@@ -63,6 +89,13 @@ const SearchFiltersCont = styled.div`
     `}
   @media(max-width:1000px) {
     background: ${colors.lightBackground};
+    flex: 2;
+    margin: 0 1rem 0 0;
+    padding: 0;
+  }
+  @media (max-width: 600px) {
+    background: ${colors.lightBackground};
+    flex: 2;
   }
 `;
 const SearchFiltersTitleCont = styled.div`
