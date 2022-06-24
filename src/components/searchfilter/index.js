@@ -16,9 +16,8 @@ export default function SearchFilters({
 }) {
   return (
     <FiltersWrapper>
-      <Button>
-        <img src={Filter} />
-      </Button>
+      <FilterIcon src={Filter} />
+
       <SearchFiltersCont className="search_inputs_cont" marginBottom>
         <SearchBar
           id="keyword_search_input"
@@ -46,21 +45,14 @@ export default function SearchFilters({
   );
 }
 
-const Button = styled.button`
-  display: block;
-  align-items: center;
-  width: 15%;
-  padding: 0;
-  margin-bottom: 3px;
-  background: ${colors.lightBackground};
-  outline: 0;
-  border: 0;
+const FilterIcon = styled.img`
   border-bottom: 2px solid;
   color: ${colors.primaryColor};
   @media (min-width: 1000px) {
     display: none;
   }
 `;
+
 const FiltersWrapper = styled.div`
   position: relative;
   display: flex;

@@ -6,7 +6,7 @@ export default function AccordionFilter({ name, items }) {
   return (
     <AccordionItem>
       <AccordionHeader onClick={() => setIsActive((prev) => !prev)}>
-        <span>{isActive ? "-" : "+"}</span>
+        <AccordionIcon>{isActive ? "-" : "+"}</AccordionIcon>
         <h2>Select {name}</h2>
       </AccordionHeader>
       {isActive && (
@@ -37,6 +37,10 @@ function AccordionInput({ id, name }) {
 }
 
 const AccordionItem = styled.div``;
+
+const AccordionIcon = styled.span`
+  transition: 300ms;
+`;
 
 const AccordionHeader = styled.header`
   display: flex;

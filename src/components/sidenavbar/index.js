@@ -15,6 +15,7 @@ export default function SideNavBar({ isOpen }) {
         {/* TODO: Implement a hamburger icon that controls the open state of the sidebar. This control should only be visible on mobile devices via CSS media queries */}
         {/* The sidebar should slide in from left */}
 
+        {/* Done using Hamburger component in discover page */}
         <SideNavHeader>
           Wesley
           <img src={Arrow} alt="Arrow pointing down" />
