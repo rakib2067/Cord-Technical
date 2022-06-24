@@ -70,6 +70,7 @@ const MoviePoster = styled.img`
   object-fit: cover;
   @media (min-width: 1200px) {
     width: unset;
+    height: unset;
   }
 `;
 

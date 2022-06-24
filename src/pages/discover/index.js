@@ -56,10 +56,6 @@ export default function Discover() {
     if (type == "text") setKeyword(value);
     else setYear(value);
   }
-  //Plan: As user types the movie name, a useEffect hook will be fired, causing the search function to be called again
-  // This will replace the existing genres and results arrays
-  // This will also rerender the movielist component
-  // All logic should happen from this component
 
   return (
     <DiscoverWrapper>
