@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
@@ -9,13 +9,16 @@ import Discover from "./pages/discover";
 import "./css/app.scss";
 
 export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Router>
       <PageContainer>
-        <SideNavBar />
+        <SideNavBar isOpen={isOpen} />
         <ContentWrapper>
           <Switch>
-            <Route path="/discover" component={Discover} />
+            <Route path="/discover">
+              <Discover isOpen={isOpen} setIsOpen={setIsOpen} />
+            </Route>
           </Switch>
         </ContentWrapper>
       </PageContainer>

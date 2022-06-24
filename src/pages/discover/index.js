@@ -8,8 +8,9 @@ import { fetchPopularMovies, fetchGenres, searchMovies } from "../../fetcher";
 
 import SearchFilters from "../../components/searchfilter";
 import MovieList from "../../components/movielist";
+import Hamburger from "../../components/hamburger";
 
-export default function Discover() {
+export default function Discover({ isOpen, setIsOpen }) {
   const [keyword, setKeyword] = useState("");
   const [year, setYear] = useState(0);
   const [results, setResults] = useState([]);
@@ -56,10 +57,15 @@ export default function Discover() {
     if (type == "text") setKeyword(value);
     else setYear(value);
   }
-
+  function handleToggle() {
+    if (isOpen) setIsOpen((prev) => !prev);
+  }
   return (
-    <DiscoverWrapper>
-      <MobilePageTitle>Discover</MobilePageTitle>
+    <DiscoverWrapper onClick={handleToggle}>
+      <Header>
+        <Hamburger onClick={() => setIsOpen((prev) => !prev)} />
+        <MobilePageTitle>Discover</MobilePageTitle>
+      </Header>
       {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
       <MovieFilters>
         <SearchFilters
@@ -78,6 +84,10 @@ export default function Discover() {
   );
 }
 
+const Header = styled.header`
+  display: flex;
+  align-items: center;
+`;
 const DiscoverWrapper = styled.main`
   padding: 45px;
   @media (max-width: 1000px) {
@@ -110,7 +120,7 @@ const MobilePageTitle = styled.h1`
   display: none;
   @media (max-width: 1000px) {
     display: block;
-    margin: 0;
+    margin: 0 0 0 2rem;
   }
 `;
 
