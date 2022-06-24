@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { sideNavBar, primaryColor } from "../../colors";
+import Placeholder from "../../images/placeholder.png";
 
 export default function MovieItem({ movie, genres }) {
+  const [error, setError] = useState(false);
+  console.log(movie.url);
   genres = genres.filter((genre) => {
     return movie.genre_ids.some((id) => id == genre.id);
   });
@@ -13,7 +16,11 @@ export default function MovieItem({ movie, genres }) {
 
     <MovieItemWrapper>
       <LeftCont>
-        <MoviePoster src={movie.url} alt="" />
+        <MoviePoster
+          onError={() => setError(true)}
+          src={error ? Placeholder : movie.url}
+          alt=""
+        />
       </LeftCont>
       <RightCont>
         <Content>
