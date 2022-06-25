@@ -40,7 +40,10 @@
 
 ## Process
 
-- Started by checking all the imports and wrappers where valid
-- Then checked for all routes and props where being passed correctly
-- Checked the redux actions where working and being dispatched properly
-- e.g: `useEffect(() => { dispatch(getResult("London")); }, []);`
+- Refactored to use Functional components
+- Matched styling in accordance to wirefame
+- Fetched Popular movies on load, and styled movie items
+- Added on Search functionality
+- Added Accordion
+- Made Sidebar responsive and toggleable
+- Optimised using `useCallback`
