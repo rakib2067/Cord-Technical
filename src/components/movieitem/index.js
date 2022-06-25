@@ -47,7 +47,7 @@ export default function MovieItem({ movie, genres }) {
   );
 }
 
-const MovieItemWrapper = styled.div`
+const MovieItemWrapper = styled.li`
   position: relative;
   display: flex;
   background-color: white;

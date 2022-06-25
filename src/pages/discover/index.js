@@ -40,7 +40,6 @@ export default function Discover({ isOpen, setIsOpen }) {
   const loadData = useCallback(async () => {
     let { results, total_results } = await fetchPopularMovies();
     let { genres } = await fetchGenres();
-    console.log(results);
     setResults(results);
     setTotalCount(total_results);
     setGenreOptions(genres);

@@ -19,8 +19,11 @@ export default function MovieList({ movies, genres }) {
   return <MoviesWrapper>{movieList}</MoviesWrapper>;
 }
 
-const MoviesWrapper = styled.div`
+const MoviesWrapper = styled.ul`
   position: relative;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   width: 100%;
 `;
 const FeedBack = styled.div`
