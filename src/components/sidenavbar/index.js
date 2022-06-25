@@ -6,7 +6,7 @@ import * as colors from "../../colors";
 import Arrow from "../../images/arrow-icon.png";
 import SearchWhite from "../../images/search-icon-white.png";
 
-export default function SideNavBar({ isOpen }) {
+export default function SideNavBar({ isOpen, setIsOpen }) {
   /* TODO: Write the necessary functions to open and close the sidebar */
 
   return (
@@ -20,7 +20,11 @@ export default function SideNavBar({ isOpen }) {
           Wesley
           <img src={Arrow} alt="Arrow pointing down" />
         </SideNavHeader>
-        <SideNavMainLink to="/discover" exact>
+        <SideNavMainLink
+          onClick={() => setIsOpen((prev) => !prev)}
+          to="/discover"
+          exact
+        >
           Discover
           <img src={SearchWhite} alt="Magnifying glass" />
         </SideNavMainLink>

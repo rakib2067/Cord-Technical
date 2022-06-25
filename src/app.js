@@ -9,11 +9,11 @@ import Discover from "./pages/discover";
 import "./css/app.scss";
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <Router>
       <PageContainer>
-        <SideNavBar isOpen={isOpen} />
+        <SideNavBar setIsOpen={setIsOpen} isOpen={isOpen} />
         <ContentWrapper>
           <Switch>
             <Route path="/discover">
