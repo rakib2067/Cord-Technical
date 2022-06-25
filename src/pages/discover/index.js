@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 import styled from "styled-components";
 
@@ -34,36 +34,50 @@ export default function Discover({ isOpen, setIsOpen }) {
   // TODO: Preload and set the popular movies and movie genres when page loads
   useEffect(() => {
     loadData();
+    setIsOpen(false);
   }, []);
-  async function loadData() {
+
+  const loadData = useCallback(async () => {
     let { results, total_results } = await fetchPopularMovies();
     let { genres } = await fetchGenres();
+    console.log(results);
     setResults(results);
     setTotalCount(total_results);
     setGenreOptions(genres);
-  }
+  }, []);
+
   // TODO: Update search results based on the keyword and year inputs
   useEffect(() => {
     keyword && handleSearch(keyword, year);
     !keyword && loadData();
   }, [keyword, year]);
 
-  async function handleSearch(keyword, year) {
-    let { results, total_results } = await searchMovies(keyword, year);
-    setResults(results);
-    setTotalCount(total_results);
-  }
-  function handleOnSearch(value, type) {
+  const handleOnSearch = useCallback((value, type) => {
     if (type == "text") setKeyword(value);
     else setYear(value);
-  }
-  function handleToggle() {
+  }, []);
+
+  const handleSearch = useCallback(
+    async (keyword, year) => {
+      let { results, total_results } = await searchMovies(keyword, year);
+      setResults(results);
+      setTotalCount(total_results);
+    },
+    [keyword, year]
+  );
+
+  //Sidebar Logic
+  const handleClose = useCallback(() => {
     if (isOpen) setIsOpen((prev) => !prev);
-  }
+  }, [isOpen]);
+  const handleOpen = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
   return (
-    <DiscoverWrapper onClick={handleToggle}>
+    <DiscoverWrapper onClick={handleClose}>
       <Header>
-        <Hamburger onClick={() => setIsOpen((prev) => !prev)} />
+        <Hamburger onClick={handleOpen} />
         <MobilePageTitle>Discover</MobilePageTitle>
       </Header>
       {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
