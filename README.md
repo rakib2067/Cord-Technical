@@ -33,7 +33,7 @@
 - Was able to implement knowledge gained about React, React router, and optimization hooks such as `useCallback`
 - Was able to handle component wide state by passing and lifting state, as Context and Redux would be overextensive
 
-## Challenges:
+### Challenges:
 
 - First time using styled components and SASS (was not able to utilise SASS)
 - Was not able to implement testing
