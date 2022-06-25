@@ -1,6 +1,7 @@
 # cord Coding Challenge (Front-end)
 
-https://streamable.com/ze7m4b
+<img width="948" alt="cord-movie" src="https://user-images.githubusercontent.com/58184636/175781180-188429bd-2cdc-450a-b13c-b333e7091151.PNG">
+
 
 ## Installation & Usage
 
